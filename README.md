@@ -1,4 +1,12 @@
 # worklog
+2018-12-16
+[]job-commander 配置准生产和生产环境的
+   []准备生产和准生产域名儿
+   []准生产配置14个定时任务
+   []生产配置14个定时任务
+[]下午看测试环境如果没有发版催测试
+[]看解约需求   
+
 2018-12-25
 []hire-task提测
   [x]准备提测邮件
@@ -11,6 +19,12 @@
    hire-api
    hire-newsign
    zo
+   
+   ○1hire-api 
+   ○2hire-task
+   ○3hire-newsign
+   ○4生效hire-task 的 job-commander任务
+
     
 
 
