@@ -1,24 +1,37 @@
 # worklog
 ## 2019-01-04
 * []计算公式
-         []a*业主返还自如的押金
+预算友家整租规则：
+     [x]a*业主返还自如的押金 
+         押金从合同，合同表deposit字段，每份合同只收取一次
+     [x]b*客户的违约金  调用出房getRentContractInfoById
+         
+     [x]c*业主违约金  本年度月租金（bz_hire_contract_payment / month_house_rent）*2 
      
-         []b*客户的违约金
+     [x]d*(装修折旧费+配置折旧费)：从配置取  getDecorateConfigureMoneyApi
+          Integer noneCarry = DateUtil.dateSubtract(endDate, calculatorBaseInfo.getBreakTime())+1;  //未履行天数
+          decorateConfigurMap.put("fitmentCostCalculate", NumUtil.doubleValue(fitmentCost * noneCarry / total,null,2));    //装修类成本
+          decorateConfigurMap.put("totalCostCalculate", NumUtil.doubleValue(totalCost * noneCarry / total,null,2));        //配置类成本
+          
+     [x]e：折扣系数   e=1
      
-         []c*业主违约金
-     
-         []d*(装修折旧费+配置折旧费)：从配置取
-     
-         []e：折扣系数
-     
-         []f*宽带折旧费
-     
-         []g*公司退还业主租金
-     
-         []h*业主退还服务质量保证金
-     
-         []i*佣金服务费：应支付金额以发起时为准（看下表）
-         合同扣款单总金额：该合同所有未付款的扣款单和待扣款单金额：由财务取+还款计划         
+     [x]f*宽带折旧费
+          调用宽带接口  getBroadbandMoneyApi 获取金额 计算折旧费
+     [x]g*公司退还业主租金
+          ==0
+     [x]h*业主退还服务质量保证金  
+          PAYMENT_TYPE 结算方式编码,付款分类 rent 表示租金  bail表示服务质量保证金  isVacancy(是否空置)==1 表示租金 
+          （bz_hire_contract_payment 本管理年度服务质量保证金 按paynum排序 取第一条服务质量保证金记录）：发起预算时，未支付本年度保证金，或本年度保证金已从租金中抵扣，h=0；已支付本年度保证金、未从租金中抵扣，h=1
+          [???]如何判断是本年度
+          [???]如何看是已抵扣
+             SELECT  t.* FROM  BZ_HIRE_CONTRACT_PAYMENT  t  WHERE t.HIRE_CONTRACT_ID = 29328 AND t.pay_type = 'bail'  ORDER BY  t.PAY_NUM ASC   
+             根据payment_status 判断当前服务质量保证金是否已支付???
+     [x]i*佣金服务费：应支付金额以发起时为准（看下表）
+         []判断空置期方法 getCalculatorBaseInfo
+            []根据取消解约时间
+          
+         合同扣款单总金额：该合同所有未付款的扣款单和待扣款单金额：由财务取+还款计划   
+               
 ## 2019-01-13
 * []计算公式
 * []zo配置
