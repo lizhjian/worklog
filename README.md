@@ -1,3 +1,45 @@
+##2019-09-16
+- [] 定时任务review
+- [] PC端代码review
+- [] APP端代码review
+- [] APP端增加校验
+
+##2019-09-14
+- [] B TRee
+   - [] 二叉平衡树的概念
+       - [] 高度查不大于1
+       
+- [] show full processlist
+- [] MySql中USING用法   
+- [] mysql for update语句
+- [] 如何测试qps
+- []COUNT(XXX OR NULL) 
+```
+http://www.voidcn.com/article/p-ypikcnit-om.html
+```
+- []SUM(if()) 
+```
+https://blog.csdn.net/qq_36894527/article/details/84345433
+```
+
+
+    
+##2109-09-12
+- [] 定时任务优化
+  - [] 出房定时任务优化
+    - [] 根据人查询es
+    - [x] 保存或更新数据
+    - [x] 计算排名
+  - [x] 查询加缓存      
+- [x] PC三个指标优化
+  - [x] 出房定时任务优化
+    - [] 根据人查询es
+    - [x] 保存或更新数据
+    - [x] 计算排名
+  - [x] 查询加缓存  
+
+
+
 # worklog
 ##2019-2-21
 
